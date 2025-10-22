@@ -1,4 +1,4 @@
-// src-tauri/src/main.rs (CONTENIDO FINAL Y CORRECTO)
+// src-tauri/src/main.rs (CONTENIDO FINAL Y ALINEADO CON EL BLUEPRINT)
 
 // Previene que se abra una ventana de consola en Windows en modo release.
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
@@ -22,7 +22,7 @@ fn main() {
         .manage(AppState { db: Mutex::new(db_connection) })
         .invoke_handler(tauri::generate_handler![
             commands::auth_commands::login,
-            commands::auth_commands::get_current_user, // Añadido para que la UI de prueba funcione
+            commands::auth_commands::get_current_user,
             commands::inventory_commands::get_programacion_mensual
         ])
         .run(tauri::generate_context!())
