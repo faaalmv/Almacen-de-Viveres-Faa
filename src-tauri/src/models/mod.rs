@@ -1,5 +1,4 @@
-// src-tauri/src/models/mod.rs (CONTENIDO AUTO-CONTENIDO)
-
+// src-tauri/src/models/mod.rs
 pub mod user;
 pub mod contract;
 pub mod inventory;
