@@ -1,4 +1,4 @@
-# src-tauri/Cargo.toml (VERSIÓN FINAL Y COMPATIBLE SIN PLUGINS EXTERNOS)
+# src-tauri/Cargo.toml (VERSIÓN FINAL Y COMPATIBLE)
 
 [package]
 name = "almacen-de-viveres-faa"

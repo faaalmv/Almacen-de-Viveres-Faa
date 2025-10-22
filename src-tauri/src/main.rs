@@ -1,6 +1,9 @@
-// src-tauri/src/main.rs (CONTENIDO FINAL Y LIMPIO)
+// src-tauri/src/main.rs (CONTENIDO FINAL Y CORRECTO)
 
-// Declaración de módulos de la arquitectura, siguiendo la sección 2.1 del Blueprint
+// Previene que se abra una ventana de consola en Windows en modo release.
+#![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
+
+// Declaración de módulos de la arquitectura
 mod app_state;
 mod commands;
 mod core;
@@ -13,18 +16,15 @@ use db::connection::DbConnection;
 use std::sync::Mutex; 
 
 fn main() {
-    // Inicializa la conexión a SQLite
     let db_connection = DbConnection::init();
 
     tauri::Builder::default()
-        // Pasa la instancia de AppState a Tauri para gestión global
         .manage(AppState { db: Mutex::new(db_connection) })
-        // Registra los comandos del backend
         .invoke_handler(tauri::generate_handler![
             commands::auth_commands::login,
-            commands::inventory_commands::get_programacion_mensual,
+            commands::auth_commands::get_current_user, // Añadido para que la UI de prueba funcione
+            commands::inventory_commands::get_programacion_mensual
         ])
-        // LA LÍNEA DE PLUGINS NO ESENCIALES HA SIDO ELIMINADA DE AQUÍ
         .run(tauri::generate_context!())
         .expect("error while running tauri application"); 
 }

@@ -11,11 +11,7 @@
   },
   "tauri": {
     "allowlist": {
-      "all": true,
-      "shell": {
-        "all": true,
-        "open": true
-      }
+      "all": true
     },
     "bundle": {
       "active": true,
@@ -36,7 +32,9 @@
       {
         "title": "Almacén de Víveres FAA",
         "width": 1200,
-        "height": 760
+        "height": 760,
+        "fullscreen": false,
+        "resizable": true
       }
     ]
   }
