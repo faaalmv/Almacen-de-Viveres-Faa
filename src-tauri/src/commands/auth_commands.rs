@@ -1,4 +1,4 @@
-// src-tauri/src/commands/auth_commands.rs
+// src-tauri/src/commands/auth_commands.rs (CORREGIDO)
 use crate::app_state::AppState;
 use crate::core::error::AppError;
 
@@ -8,13 +8,11 @@ pub async fn login(
     user_id: String,
     state: tauri::State<'_, AppState>
 ) -> Result<String, AppError> {
-    // Simulamos la lógica de login: obtener conexión y validar.
-    // Aunque no se usa la conexión aún, la inyectamos para demostrar la arquitectura.
-    let conn = state.db.lock().map_err(|_| AppError::DbLockError)?;
+    // La variable ahora es '_conn' para indicar que es intencionadamente no usada.
+    let _conn = state.db.lock().map_err(|_| AppError::DbLockError)?;
     
-    // Lógica Mock: siempre exitoso
     println!("Login exitoso para usuario: {}", user_id);
-    // En una implementación real se devolvería la struct User [cite: 29]
+    // En una implementación real se devolvería la struct User
     Ok("token_de_usuario_simulado".to_string())
 }
 

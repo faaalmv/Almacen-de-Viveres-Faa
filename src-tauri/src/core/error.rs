@@ -1,8 +1,10 @@
-// src-tauri/src/core/error.rs
+// src-tauri/src/core/error.rs (CORREGIDO Y ALINEADO AL BLUEPRINT)
 use serde::Serialize;
 use std::fmt;
 
-// Define los tipos de error estructurados para enviar al frontend
+// Le indicamos al compilador que ignore las advertencias de "código muerto" para este enum,
+// ya que las otras variantes se usarán en el futuro según el Blueprint.
+#[allow(dead_code)] 
 #[derive(Debug, Serialize, Clone)]
 pub enum AppError {
     // Errores de la capa de DB

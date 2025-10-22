@@ -1,5 +1,5 @@
-// src-tauri/src/db/connection.rs
-use rusqlite::{Connection, Result};
+// src-tauri/src/db/connection.rs (CORREGIDO)
+use rusqlite::Connection;
 
 pub struct DbConnection {
     // Aquí es donde se almacenaría la conexión real a SQLite
@@ -9,12 +9,9 @@ pub struct DbConnection {
 
 impl DbConnection {
     // Inicializa la conexión a la base de datos.
-    // En una implementación real, aquí se abriría la base de datos faaalmv.db
-    // en el directorio de datos de la aplicación.
     pub fn init() -> Self {
         println!("Inicializando conexión a la base de datos...");
         // Placeholder para una conexión que abriría o crearía el archivo faaalmv.db
-        // La ruta sería típicamente ~/.local/share/com.faaalmv.app/faaalmv.db [cite: 35, 36]
         match Connection::open_in_memory() {
             Ok(conn) => {
                 println!("Conexión a la base de datos SQLite (en memoria) establecida.");
